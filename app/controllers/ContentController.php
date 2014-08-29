@@ -10,11 +10,11 @@ class ContentController extends BaseController{
 		
 		$name = Input::get('username');   //= $name = $_POST['username'];
 		$message = Input::get('usermessage');   //= $message = $_POST['usermessage'];
-		//DB::insert('insert into mb2 (username, content) values (?,?)', array($name, $message));
-		$createmessage = new Mb2;
+		DB::insert('insert into mb2 (username, content) values (?,?)', array($name, $message));
+		/*$createmessage = new Mb2;
 		$createmessage->username = $name;
 		$createmessage->content = $message;
-		$createmessage->save();
+		$createmessage->save();*/
 		return Redirect::action('grabnshow@gns');
 	}
 
@@ -26,7 +26,7 @@ class ContentController extends BaseController{
 	}
 
 	public function actionUpdate($mbid){
-		$message = Input::('newmessage');   //= $message = $_POST['newmessage'];
+		$message = Input::get('newmessage');   //= $message = $_POST['newmessage'];
 		DB::update("update mb2 set content = '$message' where mbid = ?", array($mbid));
 		return Redirect::action('grabnshow@gns');
 	}
