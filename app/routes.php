@@ -11,10 +11,12 @@
 |
 */
 
-Route::get('/', function()
+/*Route::get('/', function()
 {
 	return View::make('hello');
-});
+});*/
+
+Route::get('/','grabnshow@gns');
 
 Route::get('waa',function()
 {
@@ -28,7 +30,8 @@ Route::get('kkk',function()
 
 Route::get('makepage/{id}','makepage@makewaa');
 
-Route::get('/firstxx','grabnshow@gns');
+
+//Route::get('/firstxx','grabnshow@gns');
 
 //-----------Message-------------//
 

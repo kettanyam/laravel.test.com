@@ -47,13 +47,14 @@
 <body>
 	<div class="newest">
 
+
 		<h1>Which you HAVE TO know......</h1>
 		@foreach($news as $new)
 		<h1>{{ $new->newscontent}}</h1>
 		<br>
 		<h4>Realese at: {{ $new->newsid}}</h4>
 		@endforeach
-		<a href="http://laravel.test.com/newsupdate">uUPATEe</a>
+		<a href="{{$home_url}}/newsupdate">uUPATEe</a>
 		<h6>Rare</h6>
 	</div>
 
@@ -61,13 +62,13 @@
 		
 
 		<h1>Leave a message now!</h1>
-		<a href="http://laravel.test.com/create">CREATE</a>
+		<a href="{{$home_url}}/create">CREATE</a>
 		<br>
 		@foreach($content as $con)
 		<h2>{{ $con -> username}} says: <br> {{ $con -> content}} <br> At {{ $con -> mbid}}</h2>
-		<a href="http://laravel.test.com/update/{{ $con -> mbid}}">UPDATE</a>
+		<a href="{{$home_url}}/update/{{ $con -> mbid}}">UPDATE</a>
 		&nbsp&nbsp
-		<a href="http://laravel.test.com/delete/{{ $con -> mbid}}">DELETE</a>
+		<a href="{{$home_url}}/delete/{{ $con -> mbid}}">DELETE</a>
 		@endforeach
 	</div>
 </body>

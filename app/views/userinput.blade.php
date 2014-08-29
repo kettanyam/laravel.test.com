@@ -40,7 +40,7 @@
 <body>
 	<div class="welcome">
 		hello
-		<form action="http://laravel.test.com/createcontent" method="post">
+		<form action="http://dev-kettan.yam.com/createcontent" method="post">
 		<h1>Insert your name:</h1><input type="text" name="username"><br>
 		<h1>Insert your message:</h1><input type="text" name="usermessage">
 		<br>

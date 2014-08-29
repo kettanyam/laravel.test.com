@@ -45,7 +45,7 @@
 		@foreach($newscontent as $con)
 		<h2>Here's the old message: <br>{{ $con -> newscontent}}</h2>
 		@endforeach
-		<form action="http://laravel.test.com/updatednews/{{ $con -> newsid}}" method="post">
+		<form action="{{$home_url}}/updatednews/{{ $con -> newsid}}" method="post">
 			<h1>Enter the new News!</h1><br><input type="text" name="thenews">
 			<input type="submit" value="Check!">
 		</form>

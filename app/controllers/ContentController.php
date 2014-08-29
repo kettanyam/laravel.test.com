@@ -2,39 +2,39 @@
 
 class ContentController extends BaseController{
 
+	
+
+
 	public function actionCreate(){
 
-		$name = $_POST['username'];
-		$message = $_POST['usermessage'];
-		DB::insert('insert into mb2 (username, content) values (?,?)', array($name, $message));
-		$url = action('grabnshow@gns');  //get the controller's position
-		echo "<script type='text/javascript'>";  //use javascript to change to the specified controller
-		echo "window.location.href='$url'";
-		echo "</script>"; 
+		
+		$name = Input::get('username');   //= $name = $_POST['username'];
+		$message = Input::get('usermessage');   //= $message = $_POST['usermessage'];
+		//DB::insert('insert into mb2 (username, content) values (?,?)', array($name, $message));
+		$createmessage = new Mb2;
+		$createmessage->username = $name;
+		$createmessage->content = $message;
+		$createmessage->save();
+		return Redirect::action('grabnshow@gns');
 	}
 
 	public function actionOldmessage($mbid){
 		//$name = $username;
+		$home_url = action("grabnshow@gns");
 		$allcontent = DB::select('select * from mb2 where mbid = ?', array($mbid));
-		return View::make('update', array('content' => $allcontent));
+		return View::make('update', array('content' => $allcontent, 'home_url' => $home_url));
 	}
 
 	public function actionUpdate($mbid){
-		$message = $_POST['newmessage'];
+		$message = Input::('newmessage');   //= $message = $_POST['newmessage'];
 		DB::update("update mb2 set content = '$message' where mbid = ?", array($mbid));
-		$url = action('grabnshow@gns');  //get the controller's position
-		echo "<script type='text/javascript'>";  //use javascript to change to the specified controller
-		echo "window.location.href='$url'";
-		echo "</script>";
+		return Redirect::action('grabnshow@gns');
 	}
 
 	public function actionDelete($mbid){
 		//DB::delete("delete * from mb2 where mbid = ?", array($mbid));  <---This sentence can't work! I don't know why!
 		DB::table('mb2')->where('mbid', '=', $mbid)->delete();
-		$url = action('grabnshow@gns');  //get the controller's position
-		echo "<script type='text/javascript'>";  //use javascript to change to the specified controller
-		echo "window.location.href='$url'";
-		echo "</script>";
+		return Redirect::action('grabnshow@gns');
 	}
 }
 

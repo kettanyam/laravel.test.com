@@ -54,17 +54,11 @@ return array(
 		),
 
 		'mysql' => array(
-			'read' => array(
-				'host' => '127.0.0.1',
-				),
-			'write' => array(
-				'host' => '127.0.0.1',
-				),
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'messageboard',
-			'username'  => 'root',
-			'password'  => '',
+			'database'  => 'kettan_wu',
+			'username'  => 'katten_wu',
+			'password'  => 'katten_wu',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
