@@ -52,10 +52,9 @@
 		@foreach($news as $new)
 		<h1>{{ $new->newscontent}}</h1>
 		<br>
-		<h4>Realese at: {{ $new->newsid}}</h4>
+		<!--<h4>Realese at: {{ $new->created_at}}</h4>-->
 		@endforeach
 		<a href="{{$home_url}}/newsupdate">uUPATEe</a>
-		<h6>Rare</h6>
 	</div>
 
 	<div class="welcome">

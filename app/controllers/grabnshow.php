@@ -14,19 +14,11 @@ class grabnshow extends BaseController{
  	*
  	*/
 	public function gns(){
-		/*$mb2content = DB::table('mb2')
-								->orderBy('mbid','desc')
-								->get();*/
+
 		//$mb2content = Mb2::all();
+		$mb4content = Mb4::orderBy('mbid', 'DESC')->get();
+		$newscontent = News2::all();
 
-		$mb2content = Mb2::orderBy('mbid', 'DESC')->get();
-
-		$newscontent = News::all();
-
-		/*$mb2content = Mb2::with(array('*' => function($query)
-		{
-			$query->orderBy('mbid', 'desc');
-		}))->get();*/
-		return View::make('show',array('content' => $mb2content, 'news' => $newscontent, 'home_url' => $this->home_url));
+		return View::make('show',array('content' => $mb4content, 'news' => $newscontent, 'home_url' => $this->home_url));
 	}
 }

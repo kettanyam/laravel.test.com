@@ -42,10 +42,9 @@
 		
 
 		
-		@foreach($content as $con)
-		<h2>Here's the old message: {{ $con -> content}}</h2>
-		@endforeach
-		<form action="{{$home_url}}/updated/{{ $con -> mbid}}" method="post">
+		
+		<h2>Here's the old message: {{ $content -> content}}</h2>
+		<form action="{{$home_url}}/updated/{{ $content -> mbid}}" method="post">
 			<h1>Enter your new message!</h1><br><input type="text" name="newmessage">
 			<input type="submit" value="Check!">
 		</form>
